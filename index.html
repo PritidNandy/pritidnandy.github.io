@@ -3,135 +3,1038 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pritid Nandy - Business & Data Analyst specializing in transforming complex data into strategic business insights">
   <title>Pritid Nandy | Business & Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #e2e8f0;
-      --accent: #38bdf8;
-      --muted: #94a3b8;
-      --border: #334155;
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --text: #334155;
+      --text-light: #64748b;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
-    header { text-align: center; padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); }
-    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .tagline { color: var(--accent); font-weight: 500; margin-bottom: 1rem; }
-    .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; color: var(--muted); font-size: 0.95rem; }
-    .contact a { color: var(--accent); text-decoration: none; }
-    section { margin: 2.5rem 0; }
-    h2 { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    p { margin-bottom: 1rem; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-    .skill-card { background: var(--card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border); }
-    .skill-card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .exp-item { margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--accent); }
-    .exp-item h3 { margin-bottom: 0.25rem; }
-    .exp-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
-    .exp-item ul { margin-left: 1.2rem; }
-    .exp-item li { margin-bottom: 0.5rem; }
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-    .project { background: var(--card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border); }
-    .project h3 { color: var(--accent); margin-bottom: 0.5rem; }
-    .visa { background: var(--card); padding: 0.75rem; border-radius: 6px; border: 1px dashed var(--accent); margin-top: 1rem; text-align: center; font-weight: 500; }
-    footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 3rem; }
-    @media (max-width: 600px) { h1 { font-size: 2rem; } .contact { flex-direction: column; } }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--bg);
+    }
+
+    /* Typography Scale - Tufte's hierarchy */
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+    h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation - Norman's visibility */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: var(--shadow-sm) 0.3s;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section - Norman's affordance */
+    .hero {
+      margin-top: 80px;
+      padding: 4rem 0 3rem;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item:hover {
+      color: var(--accent);
+    }
+
+    .visa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--success);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      width: fit-content;
+    }
+
+    /* Metrics Dashboard - Tufte's data-ink */
+    .metrics {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0;
+      margin: 2rem 0;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .metric-item h3 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .metric-item p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Section Styling - Norman's consistency */
+    section {
+      padding: 4rem 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--bg-alt);
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    /* Skills - Tufte's small multiples */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .skill-category:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .skill-category h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: var(--bg-alt);
+      color: var(--text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Experience Timeline - Norman's mapping */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .exp-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 2rem;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-left: -5px;
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px var(--accent);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-title h3 {
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-company {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .exp-meta {
+      background: var(--bg-alt);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-item li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .exp-item li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Projects - Tufte's layering */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+    }
+
+    .project-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-tag {
+      background: var(--bg-alt);
+      color: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+
+    /* Education */
+    .edu-item {
+      background: white;
+      padding: 1.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .edu-item:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-degree h3 {
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-school {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .edu-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .dissertation {
+      background: var(--bg-alt);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .dissertation strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer - Norman's feedback */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .footer-content h2 {
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .footer-content p {
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--secondary);
+    }
+
+    /* Mobile Responsive - Norman's constraints */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .exp-header,
+      .edu-header {
+        flex-direction: column;
+      }
+
+      .exp-meta,
+      .edu-meta {
+        flex-wrap: wrap;
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animations - Subtle feedback */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    /* Print Styles */
+    @media print {
+      nav, .hero-cta, .footer-links {
+        display: none;
+      }
+      
+      .hero {
+        margin-top: 0;
+      }
+      
+      section {
+        page-break-inside: avoid;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Pritid Nandy</h1>
-      <div class="tagline">Business Analyst | Data Analyst</div>
-      <div class="contact">
-        <span>Exeter, UK</span>
-        <span>📞 +44 7587 967045</span>
-        <a href="mailto:nandypritid@gmail.com">✉️ nandypritid@gmail.com</a>
-        <a href="https://linkedin.com/in/pritid-nandy" target="_blank">💼 LinkedIn</a>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">Pritid Nandy</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Pritid Nandy</h1>
+          <div class="tagline">Business Analyst | Data Analyst</div>
+          <p class="hero-description">
+            Commercially-focused Business Data Analyst with an MSc in Business Analytics (Distinction) and 5+ years of experience transforming complex datasets into actionable insights for C-suite stakeholders.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="https://linkedin.com/in/pritid-nandy" target="_blank" class="btn btn-secondary">View LinkedIn</a>
+          </div>
+          <div class="hero-contact">
+            <a href="mailto:nandypritid@gmail.com" class="contact-item">📧 nandypritid@gmail.com</a>
+            <span class="contact-item">📍 Exeter, United Kingdom</span>
+            <span class="contact-item">📞 +44 7587 967045</span>
+          </div>
+          <div class="visa-badge">
+            ✅ Full UK Work Rights (Graduate Visa until Jan 2028)
+          </div>
+        </div>
       </div>
-      <div class="visa">✅ Full UK Work Rights (Graduate Route Visa valid until Jan 2028, no sponsorship required)</div>
-    </header>
+    </div>
+  </section>
 
-    <section id="summary">
-      <h2>Professional Summary</h2>
-      <p>Commercially-focused Business Data Analyst with an MSc in Business Analytics (Distinction) and 5+ years of experience in business transformation and decision intelligence. Proven track record of translating complex datasets into actionable insights for C-suite stakeholders, delivering an 18% reduction in operational waste and 9% cost savings. Expert in BPMN process mapping, requirements elicitation, and building interactive dashboards that bridge the gap between technical data and strategic business goals.</p>
-    </section>
+  <!-- Metrics Dashboard -->
+  <section class="metrics">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <h3>5+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="metric-item">
+          <h3>18%</h3>
+          <p>Operational Waste Reduction</p>
+        </div>
+        <div class="metric-item">
+          <h3>9%</h3>
+          <p>Cost Savings Delivered</p>
+        </div>
+        <div class="metric-item">
+          <h3>£382M+</h3>
+          <p>Revenue Impact Analyzed</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="skills">
-      <h2>Technical & Functional Skills</h2>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p>Bridging the gap between technical data and strategic business decisions</p>
+      </div>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text); max-width: 800px;">
+        I specialize in business transformation and decision intelligence, with expertise in BPMN process mapping, 
+        requirements elicitation, and building interactive dashboards. My work has delivered measurable impact including 
+        <strong>18% reduction in operational waste</strong> and <strong>9% cost savings</strong> through data-driven insights. 
+        Currently completing my MSc in Business Analytics at the University of Exeter with Distinction.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Technical & Functional Skills</h2>
+        <p>Tools and methodologies I use to deliver business impact</p>
+      </div>
       <div class="skills-grid">
-        <div class="skill-card"><h3>Analysis & Strategy</h3>Requirements Elicitation, Stakeholder Management, BPMN, Gap/Root Cause Analysis, UAT, Agile/Scrum, BI</div>
-        <div class="skill-card"><h3>Data Intelligence</h3>Python (Pandas, Scikit-learn), SQL (Server, SQLite), Predictive Modelling, Time-Series Forecasting, Statistical Analysis</div>
-        <div class="skill-card"><h3>Visualization & Reporting</h3>Power BI, Dash/Plotly, Advanced Excel (VBA/Macros), Executive Dashboards</div>
-        <div class="skill-card"><h3>Operations</h3>ERP Integration, Supply Chain Analytics, Data Migration, ETL Pipelines, Change Management</div>
+        <div class="skill-category">
+          <h3>📊 Analysis & Strategy</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Requirements Elicitation</span>
+            <span class="skill-tag">Stakeholder Management</span>
+            <span class="skill-tag">BPMN Process Mapping</span>
+            <span class="skill-tag">Gap Analysis</span>
+            <span class="skill-tag">Root Cause Analysis</span>
+            <span class="skill-tag">UAT</span>
+            <span class="skill-tag">Agile/Scrum</span>
+            <span class="skill-tag">Business Intelligence</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>💻 Data Intelligence</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (Pandas, Scikit-learn)</span>
+            <span class="skill-tag">SQL (Server, SQLite)</span>
+            <span class="skill-tag">Predictive Modelling</span>
+            <span class="skill-tag">Time-Series Forecasting</span>
+            <span class="skill-tag">Statistical Analysis</span>
+            <span class="skill-tag">SARIMAX</span>
+            <span class="skill-tag">XGBoost</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>📈 Visualization</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Dash/Plotly</span>
+            <span class="skill-tag">Advanced Excel</span>
+            <span class="skill-tag">VBA/Macros</span>
+            <span class="skill-tag">Executive Dashboards</span>
+            <span class="skill-tag">Matplotlib</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>⚙️ Operations</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ERP Integration</span>
+            <span class="skill-tag">Supply Chain Analytics</span>
+            <span class="skill-tag">Data Migration</span>
+            <span class="skill-tag">ETL Pipelines</span>
+            <span class="skill-tag">Change Management</span>
+            <span class="skill-tag">Process Optimization</span>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="experience">
-      <h2>Professional Experience</h2>
-      <div class="exp-item">
-        <h3>Nando's</h3>
-        <div class="exp-meta">Kitchen Team Member | Jun 2025 – Present | Exeter, UK</div>
-        <ul><li>Analysed daily inventory and sales data to support stock ordering decisions and operational efficiency in a high-volume UK retail environment.</li></ul>
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2>Professional Experience</h2>
+        <p>Delivering measurable business impact through data and process optimization</p>
       </div>
-      <div class="exp-item">
-        <h3>Balaram Mullick & Radharaman Mullick</h3>
-        <div class="exp-meta">Business Operations Executive | Apr 2021 – Mar 2024 | Kolkata, India</div>
-        <ul>
-          <li>Led end-to-end ERP transformation, facilitating requirements gathering workshops and creating BPMN process maps to optimise operating models across multi-factory operations.</li>
-          <li>Engineered a custom analytics platform using SQL and Python, automating reporting and delivering an 18% reduction in operational waste.</li>
-          <li>Managed full project lifecycle including UAT, change management, and third-party supplier alignment.</li>
-          <li>Integrated production ERP with POS systems, driving a 5% gross profit uplift through real-time inventory-profit tracking.</li>
-          <li>Mentored junior team members on process improvements and data analysis across 15+ outlets.</li>
-        </ul>
-      </div>
-      <div class="exp-item">
-        <h3>Girish Chandra Dey & Nakur Chandra Nandy</h3>
-        <div class="exp-meta">Business Account Executive | Apr 2019 – Mar 2021 | Kolkata, India</div>
-        <ul>
-          <li>Conducted daily demand forecasting using historical YoY growth and weather patterns to optimise inventory levels.</li>
-          <li>Spearheaded launch of 5+ new product varieties by integrating market analysis with customer feedback.</li>
-          <li>Renegotiated supplier contracts, achieving a 9% reduction in raw material costs and 2% recurring savings via invoice reconciliation.</li>
-          <li>Re-engineered payroll and attendance tracking systems to eliminate administrative errors.</li>
-        </ul>
-      </div>
-    </section>
+      <div class="timeline">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">
+              <h3>Kitchen Team Member</h3>
+              <div class="exp-company">Nando's</div>
+            </div>
+            <div class="exp-meta">Jun 2025 – Present | Exeter, UK</div>
+          </div>
+          <ul>
+            <li>Analyzed daily inventory and sales data to support stock ordering decisions and operational efficiency in a high-volume UK retail environment</li>
+          </ul>
+        </div>
 
-    <section id="education">
-      <h2>Education</h2>
-      <div class="exp-item">
-        <h3>University of Exeter</h3>
-        <div class="exp-meta">MSc Business Analytics (Distinction) | Sep 2024 – Sep 2025</div>
-        <p><strong>Dissertation:</strong> Strategic UK Spirits Export Forecasting. Architected a forecasting framework quantifying £382M+ revenue impact using SARIMAX & XGBoost; deployed interactive Plotly dashboard for FTA pathway sensitivity analysis.</p>
-      </div>
-      <div class="exp-item">
-        <h3>University of Calcutta</h3>
-        <div class="exp-meta">Master of Commerce (MCom) | Sep 2018 – Sep 2020</div>
-      </div>
-    </section>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">
+              <h3>Business Operations Executive</h3>
+              <div class="exp-company">Balaram Mullick & Radharaman Mullick</div>
+            </div>
+            <div class="exp-meta">Apr 2021 – Mar 2024 | Kolkata, India</div>
+          </div>
+          <ul>
+            <li>Led end-to-end ERP transformation, facilitating requirements gathering workshops with stakeholders and creating BPMN process maps to optimize operating models across multi-factory operations</li>
+            <li>Engineered a custom analytics platform using SQL and Python, automating reporting and delivering an <strong>18% reduction in operational waste</strong></li>
+            <li>Managed full project lifecycle including UAT, change management, and third-party supplier alignment</li>
+            <li>Integrated production ERP with POS systems, driving a <strong>5% gross profit uplift</strong> through real-time inventory-profit tracking</li>
+            <li>Mentored junior team members on process improvements across 15+ outlets</li>
+          </ul>
+        </div>
 
-    <section id="projects">
-      <h2>Key Projects</h2>
-      <div class="projects">
-        <div class="project"><h3>Customer Transaction Intelligence Dashboard</h3><p>Python ETL pipeline harmonizing 16,000+ PDF records; Dash/Plotly cohort dashboard identifying high-value segments.</p></div>
-        <div class="project"><h3>Retail Analytics Platform</h3><p>SQL Server + MongoDB hybrid architecture for real-time inventory/sales analytics with ACID compliance.</p></div>
-        <div class="project"><h3>Payroll Automation & Risk System</h3><p>SQLite/SQLAlchemy system for 50+ employees with Scikit-learn anomaly detection for audit reporting.</p></div>
-        <div class="project"><h3>Automated Sentiment Intelligence</h3><p>OpenAI API + TextBlob pipeline transforming qualitative feedback into actionable insights and auto-responses.</p></div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">
+              <h3>Business Account Executive</h3>
+              <div class="exp-company">Girish Chandra Dey & Nakur Chandra Nandy</div>
+            </div>
+            <div class="exp-meta">Apr 2019 – Mar 2021 | Kolkata, India</div>
+          </div>
+          <ul>
+            <li>Conducted daily demand forecasting using historical YoY growth and weather patterns to optimize inventory levels</li>
+            <li>Spearheaded launch of 5+ new product varieties by integrating market analysis with customer feedback</li>
+            <li>Achieved <strong>9% reduction in raw material costs</strong> and 2% recurring savings through data-driven supplier contract renegotiation</li>
+            <li>Re-engineered payroll and attendance tracking systems to eliminate administrative errors</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="additional">
-      <h2>Certifications & Languages</h2>
-      <p><strong>Certification:</strong> Financial Markets & Analysis (Exeter Student Investment Fund)<br>
-      <strong>Languages:</strong> English (Fluent), Bengali (Native), Hindi (Fluent)</p>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Projects</h2>
+        <p>Data-driven solutions delivering real business value</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>🎯 Customer Transaction Intelligence Dashboard</h3>
+          <p>Engineered Python ETL pipeline (pdfplumber/regex) harmonizing 16,000+ PDF records; developed interactive Dash/Plotly dashboard using cohort analysis to identify high-value customer segments.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">ETL</span>
+            <span class="project-tag">Dash/Plotly</span>
+            <span class="project-tag">Cohort Analysis</span>
+          </div>
+        </div>
 
-    <footer>
-      <p>© <span id="year"></span> Pritid Nandy | Built for clarity, impact, and data-driven decisions.</p>
-    </footer>
-  </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        <div class="project-card">
+          <h3>📦 Retail Analytics Platform</h3>
+          <p>Architected hybrid database (SQL Server + MongoDB) with ACID compliance for real-time inventory and sales analytics, providing instantaneous operational visibility.</p>
+          <div class="project-tags">
+            <span class="project-tag">SQL Server</span>
+            <span class="project-tag">MongoDB</span>
+            <span class="project-tag">Real-time Analytics</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>💰 Payroll Automation & Risk System</h3>
+          <p>Developed secure SQLite/SQLAlchemy system automating payroll for 50+ employees; integrated Scikit-learn anomaly detection for audit reporting.</p>
+          <div class="project-tags">
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">Scikit-learn</span>
+            <span class="project-tag">Anomaly Detection</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>🤖 Automated Sentiment Intelligence</h3>
+          <p>Leveraged OpenAI API and TextBlob to transform qualitative feedback into actionable insights with automated response generation.</p>
+          <div class="project-tags">
+            <span class="project-tag">OpenAI API</span>
+            <span class="project-tag">NLP</span>
+            <span class="project-tag">TextBlob</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>🌍 UK Spirits Export Forecasting (Dissertation)</h3>
+          <p>Architected forecasting framework quantifying £382M+ revenue impact using SARIMAX & XGBoost; deployed interactive Plotly dashboard for FTA pathway analysis.</p>
+          <div class="project-tags">
+            <span class="project-tag">SARIMAX</span>
+            <span class="project-tag">XGBoost</span>
+            <span class="project-tag">Plotly</span>
+            <span class="project-tag">Forecasting</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>🌱 Environmental Driver Analysis</h3>
+          <p>Executed multi-variate regression on international CO₂ datasets to isolate socio-economic drivers; translated statistical outputs into strategic sustainability reports.</p>
+          <div class="project-tags">
+            <span class="project-tag">Regression Analysis</span>
+            <span class="project-tag">Statistical Modeling</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <h2>Education</h2>
+        <p>Academic foundation in business analytics and commerce</p>
+      </div>
+      
+      <div class="edu-item">
+        <div class="edu-header">
+          <div class="edu-degree">
+            <h3>MSc Business Analytics</h3>
+            <div class="edu-school">University of Exeter</div>
+          </div>
+          <div class="exp-meta">Sep 2024 – Sep 2025 | Distinction</div>
+        </div>
+        <div class="edu-meta">
+          <span>📚 Database Technologies</span>
+          <span> Statistics</span>
+          <span>🤖 Machine Learning</span>
+          <span>📦 Supply Chain Analytics</span>
+        </div>
+        <div class="dissertation">
+          <strong>🎓 Dissertation: Strategic UK Spirits Export Forecasting</strong>
+          Architected a strategic forecasting framework to quantify the £382M+ revenue impact of UK-India trade policy shifts using SARIMAX and XGBoost models; deployed interactive Plotly stakeholder dashboard for FTA pathway sensitivity analysis.
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <div class="edu-degree">
+            <h3>Master of Commerce (MCom)</h3>
+            <div class="edu-school">University of Calcutta</div>
+          </div>
+          <div class="exp-meta">Sep 2018 – Sep 2020</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <h2>Let's Work Together</h2>
+        <p>Open to Business Analyst and Data Analyst roles where I can drive impact through data</p>
+      </div>
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">
+          Feel free to reach out for opportunities, collaborations, or just a conversation about data, analytics, and business transformation.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="mailto:nandypritid@gmail.com" class="btn btn-primary">📧 Email Me</a>
+          <a href="https://linkedin.com/in/pritid-nandy" target="_blank" class="btn btn-secondary">💼 LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <h2>Pritid Nandy</h2>
+        <p>Transforming Data into Strategic Business Decisions</p>
+        <div class="footer-links">
+          <a href="mailto:nandypritid@gmail.com">📧 Email</a>
+          <a href="https://linkedin.com/in/pritid-nandy" target="_blank">💼 LinkedIn</a>
+          <a href="https://github.com/pritid-nandy" target="_blank">🐙 GitHub</a>
+        </div>
+        <div class="copyright">
+          © <span id="year"></span> Pritid Nandy. Built with precision and purpose.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year update
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll effect to navigation
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+
 </body>
 </html>
