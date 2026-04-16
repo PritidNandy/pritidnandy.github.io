@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | Pritid Nandy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Same CSS as index.html - copy the :root and basic styles */
+    :root {
+      --primary: #0f172a;
+      --accent: #0ea5e9;
+      --text: #334155;
+      --text-light: #64748b;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo { font-weight: 700; font-size: 1.25rem; color: var(--primary); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .page-header {
+      margin-top: 70px;
+      padding: 4rem 0 3rem;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Case Study Cards */
+    .case-studies-list {
+      padding: 4rem 0;
+    }
+
+    .case-study-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .case-study-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .case-study-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .case-study-card h2 {
+      color: var(--primary);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-study-card p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-study-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: var(--bg-alt);
+      color: var(--text);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+    }
+
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .read-more-btn:hover {
+      background: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    /* Case Study Detail View */
+    .case-detail {
+      background: white;
+      border-radius: 12px;
+      padding: 3rem;
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .case-detail h2 {
+      font-size: 2.25rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .case-detail h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin: 2rem 0 1rem;
+    }
+
+    .case-detail p, .case-detail ul {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .case-detail ul {
+      padding-left: 1.5rem;
+    }
+
+    .case-detail li {
+      margin-bottom: 0.75rem;
+    }
+
+    .impact-box {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .impact-box h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .impact-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .impact-box li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+
+    .impact-box li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    .visual-showcase {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: var(--bg-alt);
+      border-radius: 12px;
+      border: 2px dashed var(--border);
+      text-align: center;
+    }
+
+    .visual-showcase h4 {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .visual-item {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .visual-item img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .case-detail { padding: 2rem 1.5rem; }
+      .visual-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Pritid Nandy</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#credentials">Credentials</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Business Intelligence Case Studies</h1>
+      <p>Transforming raw data into strategic decisions with measurable business impact</p>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES LIST -->
+  <section class="case-studies-list">
+    <div class="container">
+
+      <!-- CASE STUDY 1 -->
+      <div class="case-study-card" onclick="toggleCaseStudy('case1')">
+        <span class="case-study-tag">📈 Time-Series Forecasting</span>
+        <h2>Forecasting UK Whisky and Gin Exports Under Tariffs and FTAs</h2>
+        <p>Quantifying how U.S. tariffs and a future UK–India FTA reshape premium spirits exports using SARIMAX, XGBoost, and an interactive stakeholder dashboard.</p>
+        <div class="case-study-meta">
+          <div class="meta-item">📊 Impact: £382M+ revenue analyzed</div>
+          <div class="meta-item">🎓 MSc Dissertation Project</div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">SARIMAX</span>
+          <span class="tech-tag">XGBoost</span>
+          <span class="tech-tag">Plotly/Dash</span>
+        </div>
+        <a href="#" class="read-more-btn" onclick="event.stopPropagation(); toggleCaseStudy('case1'); return false;">
+          View Case Study →
+        </a>
+
+        <!-- DETAILED VIEW (Hidden by default) -->
+        <div id="case1" class="case-detail" style="display: none; margin-top: 2rem;">
+          <a href="#" class="back-link" onclick="toggleCaseStudy('case1'); return false;">← Back to Summary</a>
+          
+          <h2>Forecasting UK Whisky and Gin Exports Under Tariffs and FTAs</h2>
+          
+          <h3>🎯 Executive Summary</h3>
+          <p>An end-to-end forecasting framework for UK whisky and gin exports to the United States and India, linking monthly HMRC trade flows with GDP, CPIH spirits inflation, and GBP exchange rates.</p>
+
+          <h3>💼 The Business Problem</h3>
+          <ul>
+            <li>UK distilleries make multi-year capacity decisions while exports respond month-by-month to tariffs and economic cycles</li>
+            <li>Without forward-looking forecasting, producers risk over-producing into depressed demand or under-serving key markets</li>
+            <li>Trade negotiators lack quantitative models to assess FTA impact</li>
+          </ul>
+
+          <div class="impact-box">
+            <h3>💡 Business Impact</h3>
+            <ul>
+              <li><strong>Market Expansion:</strong> Distilleries can dynamically route inventory to markets with most favorable economic conditions</li>
+              <li><strong>Risk Mitigation:</strong> Quantifies product resilience to global inflation</li>
+              <li><strong>Policy Influence:</strong> Provides data-driven estimates for trade negotiations</li>
+            </ul>
+          </div>
+
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <h4>Add your screenshots here:</h4>
+            <div class="visual-grid">
+              <div class="visual-item">
+                <!-- REPLACE WITH YOUR IMAGE -->
+                <img src="images/forecast-chart.png" alt="Export Forecast">
+                <p><strong>Export Volume Forecast</strong></p>
+              </div>
+              <div class="visual-item">
+                <!-- REPLACE WITH YOUR IMAGE -->
+                <img src="images/tariff-impact.png" alt="Tariff Impact">
+                <p><strong>Tariff Impact Analysis</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <h3>🔧 Methodology</h3>
+          <p><strong>Stack:</strong> Python, Pandas, Statsmodels (SARIMAX), XGBoost, Plotly/Dash</p>
+          <p><strong>Approach:</strong> Harmonized HMRC CN8 trade data with ONS CPIH, IMF GDP, and BoE FX rates. Compared SARIMAX vs. XGBoost on MAE/RMSE.</p>
+
+          <h3>📌 Key Insights</h3>
+          <ul>
+            <li>Whisky exports showed 0.68 elasticity to partner-country GDP</li>
+            <li>Under no-tariff scenario, exports would have been 14-22% higher during 2019-2021</li>
+            <li>Front-loaded FTA tariff reductions projected 31% export growth over 5 years</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 2 -->
+      <div class="case-study-card" onclick="toggleCaseStudy('case2')">
+        <span class="case-study-tag">🌍 Regression Analysis</span>
+        <h2>Global CO₂ Emission Analysis & Prediction</h2>
+        <p>Identifying vehicle characteristics driving greenhouse gases across Nordic markets to assist climate-policy formulation.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Scikit-learn</span>
+          <span class="tech-tag">Linear Regression</span>
+        </div>
+        <a href="#" class="read-more-btn" onclick="event.stopPropagation(); toggleCaseStudy('case2'); return false;">
+          View Case Study →
+        </a>
+
+        <div id="case2" class="case-detail" style="display: none; margin-top: 2rem;">
+          <a href="#" class="back-link" onclick="toggleCaseStudy('case2'); return false;">← Back to Summary</a>
+          
+          <h2>Global CO₂ Emission Analysis & Prediction</h2>
+          
+          <h3>🎯 Executive Summary</h3>
+          <p>A comprehensive regression analysis of passenger car emissions across Nordic countries to identify predominant vehicle characteristics driving greenhouse gases.</p>
+
+          <h3>💼 The Business Problem</h3>
+          <ul>
+            <li>Automakers struggle to bridge gap between lab-tested and real-world emissions</li>
+            <li>Without understanding which variables contribute most to emissions, policies remain inefficient</li>
+            <li>Manufacturing strategies lack data-driven prioritization</li>
+          </ul>
+
+          <div class="impact-box">
+            <h3>💡 Business Impact</h3>
+            <ul>
+              <li><strong>For Policymakers:</strong> Enables data-driven tax incentives rather than blanket regulations</li>
+              <li><strong>For Manufacturers:</strong> Highlights engineering bottlenecks for targeted R&D investment</li>
+            </ul>
+          </div>
+
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <h4>Add your screenshots here:</h4>
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/co2-by-country.png" alt="CO2 by Country">
+                <p><strong>Emissions by Country</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <h3>🔧 Methodology</h3>
+          <p><strong>Stack:</strong> Python, Scikit-learn, Seaborn/Matplotlib</p>
+          <p><strong>Approach:</strong> Cleaned EEA datasets, generated correlation matrices, implemented multiple linear regression.</p>
+
+          <h3>📌 Key Insights</h3>
+          <ul>
+            <li>Engine power and weight showed strongest correlation with CO₂ (r > 0.78)</li>
+            <li>Hybrid/electric vehicles reduced emissions by 62% on average</li>
+            <li>Country-level policy differences explained 23% of residual variance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Add more case studies following the same pattern -->
+      <!-- Copy the structure above and replace content for each project -->
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Pritid Nandy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle case study detail view
+    function toggleCaseStudy(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === 'none') {
+        element.style.display = 'block';
+      } else {
+        element.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
