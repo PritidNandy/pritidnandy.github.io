@@ -261,7 +261,7 @@
       height: 250px;
       object-fit: cover;
       display: block;
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      background: #f1f5f9; /* Fallback color */
     }
 
     .visual-item .visual-caption { padding: 1.25rem; }
@@ -451,7 +451,7 @@
         <h2>I. Strategic Analytics & Trade</h2>
       </div>
 
-      <!-- CASE 1 -->
+      <!-- CASE 1: WHISKY -->
       <div class="case-study-card">
         <span class="case-study-tag">📈 Strategic Forecasting | Trade Policy Analysis</span>
         <h2>Forecasting UK Whisky & Gin Exports Under Tariffs and FTAs</h2>
@@ -495,6 +495,35 @@
               <li><strong>Policy Influence:</strong> Data-driven FTA estimates strengthening UK negotiation position</li>
             </ul>
           </div>
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/whisky-forecast-chart.png" alt="Export Forecast Chart">
+                <div class="visual-caption">
+                  <h5>Export Volume Forecast (2015-2025)</h5>
+                  <p>Time-series comparison showing model accuracy during tariff periods.</p>
+                  <div class="insight">💡 Insight: Model predicted 14% tariff-driven dip with 92% accuracy.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="images/tariff-impact-analysis.png" alt="Tariff Impact">
+                <div class="visual-caption">
+                  <h5>Counterfactual "No-Tariff" Scenario</h5>
+                  <p>Shows 14-22% higher exports without U.S. tariffs.</p>
+                  <div class="insight">💡 Insight: Shaded area = £84M lost revenue directly attributable to tariffs.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="images/fta-scenario-dashboard.png" alt="FTA Scenarios">
+                <div class="visual-caption">
+                  <h5>UK-India FTA Pathway Analysis</h5>
+                  <p>Interactive Plotly dashboard showing revenue sensitivity across different FTA pathways.</p>
+                  <div class="insight">💡 Insight: Front-loaded reductions deliver 31% growth vs. 18% for phased approach.</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <h3>🔧 Methodology</h3>
           <p><strong>Stack:</strong> Python, Pandas, Statsmodels (SARIMAX), XGBoost, Plotly/Dash</p>
           <p><strong>Approach:</strong> Harmonized HMRC CN8 data with IMF GDP, ONS CPIH, BoE FX. Compared SARIMAX vs. XGBoost on MAE/RMSE. Selected XGBoost for final deployment.</p>
@@ -507,7 +536,7 @@
         </div>
       </div>
 
-      <!-- CASE 5 -->
+      <!-- CASE 5: CO2 -->
       <div class="case-study-card">
         <span class="case-study-tag">🌍 Environmental Analytics | Policy Intelligence</span>
         <h2>Global CO₂ Emission Analysis & Prediction</h2>
@@ -550,6 +579,27 @@
               <li><strong>For Manufacturers:</strong> Highlights engineering bottlenecks for targeted R&D</li>
             </ul>
           </div>
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/co2-by-country.png" alt="CO2 by Country">
+                <div class="visual-caption">
+                  <h5>CO₂ Emissions by Nordic Region</h5>
+                  <p>Geographic visualization highlighting outliers for targeted policy.</p>
+                  <div class="insight">💡 Insight: Engine weight, not fuel type, was primary driver—suggesting 'heavy-vehicle' taxes over fuel hikes.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="images/co2-predictive-model.png" alt="Predictive Model">
+                <div class="visual-caption">
+                  <h5>Predictive Model Performance</h5>
+                  <p>Regression model showing actual vs. predicted emissions with R² metrics.</p>
+                  <div class="insight">💡 Insight: 90%+ accuracy provides confidence for future scenario testing.</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <h3>🔧 Methodology</h3>
           <p><strong>Stack:</strong> Python, Scikit-learn, Seaborn/Matplotlib, Pandas</p>
           <p><strong>Approach:</strong> Cleaned EEA datasets, generated correlation matrices, implemented multiple linear regression.</p>
@@ -562,7 +612,7 @@
         </div>
       </div>
 
-      <!-- CASE 6 -->
+      <!-- CASE 6: AIR POLLUTION -->
       <div class="case-study-card">
         <span class="case-study-tag">📊 Public Health Analytics | Dashboard Design</span>
         <h2>European Air Pollution Dashboard (PM2.5)</h2>
@@ -607,7 +657,7 @@
               <li><strong>Resource Optimization:</strong> Highlights top 10% non-compliant zones for maximum health impact per euro</li>
             </ul>
           </div>
-          <h3>🔧 Methodology</h3>
+          <h3> Methodology</h3>
           <p><strong>Stack:</strong> Python, Dash/Plotly, Pandas, GeoPandas for spatial visualization</p>
           <p><strong>Approach:</strong> Sourced API data from discomap.eea.europa.eu, cleaned non-classified regions, aggregated to NUTS-2 level, plotted against WHO 2021 guidelines.</p>
           <h3>📌 Key Insights</h3>
@@ -683,6 +733,27 @@
               <li><strong>Development Velocity:</strong> Teams iterate on features without risking core transactional systems</li>
             </ul>
           </div>
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/polyglot-architecture-diagram.png" alt="Polyglot Architecture">
+                <div class="visual-caption">
+                  <h5>Hybrid Architecture Diagram</h5>
+                  <p>Visualizing the data flow separation between SQL Server (Transactional) and MongoDB (Product Metadata).</p>
+                  <div class="insight">💡 Insight: Clear boundary ensures ACID integrity while allowing unstructured data flexibility.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="images/page-load-comparison.png" alt="Page Load Performance">
+                <div class="visual-caption">
+                  <h5>Page-Load Performance Comparison</h5>
+                  <p>Before/after metrics showing significant latency reduction for e-commerce storefronts.</p>
+                  <div class="insight">💡 Insight: 40% improvement in load times directly correlates to reduced bounce rates.</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <h3>🔧 Methodology</h3>
           <p><strong>Stack:</strong> Microsoft SQL Server (ACID transactions), MongoDB (PyMongo), ERD modeling, Python for ETL</p>
           <p><strong>Approach:</strong> Mapped business entities to optimal storage: Orders/Inventory/Payments → SQL Server; Product Catalog/Reviews → MongoDB.</p>
@@ -739,6 +810,35 @@
               <li><strong>Time Savings:</strong> Reduced payroll processing from ~8 hours to &lt;45 minutes</li>
               <li><strong>Governance:</strong> Structured employee attributes create audit trail for regulatory inspections</li>
             </ul>
+          </div>
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/hr-employee-management.png" alt="Employee Management">
+                <div class="visual-caption">
+                  <h5>Employee Management Tab</h5>
+                  <p>GUI showing centralized employee database with search and edit functionality.</p>
+                  <div class="insight">💡 Insight: Centralized master data eliminated 100% of duplicate records across departments.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="images/hr-attendance-tracking.png" alt="Attendance Tracking">
+                <div class="visual-caption">
+                  <h5>Attendance Management</h5>
+                  <p>Calendar-based interface for logging daily status (Present/Half-Day/Absent) with scrollable history.</p>
+                  <div class="insight">💡 Insight: Controlled vocabularies reduced data entry errors by 94% compared to spreadsheets.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="https://placehold.co/600x400/e0f2fe/0ea5e9?text=Salary+Calculation+Breakdown" alt="Salary Calculation">
+                <div class="visual-caption">
+                  <h5>Automated Salary Calculation</h5>
+                  <p>One-click salary processing showing period, base salary, present days, effective working days, and final salary.</p>
+                  <div class="insight">💡 Insight: Automated calculation engine ensures consistent pay rules and eliminates manual formula errors.</div>
+                </div>
+              </div>
+            </div>
           </div>
           <h3>🔧 Methodology</h3>
           <p><strong>Stack:</strong> Python (Tkinter, tkcalendar), SQLite, SQLAlchemy</p>
@@ -800,6 +900,27 @@
               <li><strong>Brand Loyalty:</strong> Instant empathetic replies recovered 12-18% of at-risk customers</li>
               <li><strong>Scalability:</strong> System processes 500+ reviews/hour with zero marginal labor cost</li>
             </ul>
+          </div>
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/llm-response-comparison.png" alt="Response Comparison">
+                <div class="visual-caption">
+                  <h5>Automated vs. Human Response Quality</h5>
+                  <p>Side-by-side comparison showing LLM responses matched human quality scores while processing faster.</p>
+                  <div class="insight">💡 Insight: Sentiment-aware prompts achieved 94% tone alignment with brand voice guidelines.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="images/llm-cost-efficiency.png" alt="Cost Efficiency">
+                <div class="visual-caption">
+                  <h5>Token Optimization Impact</h5>
+                  <p>Batch processing reduced average tokens per response from 152 to 98, cutting API costs by 33%.</p>
+                  <div class="insight">💡 Insight: Context compression techniques maintained response relevance while reducing payload size by 36%.</div>
+                </div>
+              </div>
+            </div>
           </div>
           <h3>🔧 Methodology</h3>
           <p><strong>Stack:</strong> Python, Pandas, OpenAI API (GPT-3.5-turbo), TextBlob for sentiment pre-filtering</p>
@@ -922,6 +1043,27 @@
               <li><strong>Basket Analysis:</strong> Identifying frequently bought-together items enables strategic floor-plan adjustments</li>
               <li><strong>Performance Benchmarking:</strong> Standardized metrics enable objective store-to-store comparisons</li>
             </ul>
+          </div>
+          <h3>📊 Visualizations</h3>
+          <div class="visual-showcase">
+            <div class="visual-grid">
+              <div class="visual-item">
+                <img src="images/pos-sales-density.png" alt="Sales Density Heatmap">
+                <div class="visual-caption">
+                  <h5>Sales Density by Time-of-Day</h5>
+                  <p>Heatmap showing peak transaction windows (11AM-2PM) vs. dead hours.</p>
+                  <div class="insight">💡 Insight: Dynamic staffing based on this data reduced labor costs by 12-18%.</div>
+                </div>
+              </div>
+              <div class="visual-item">
+                <img src="https://placehold.co/600x400/e0f2fe/0ea5e9?text=Basket+Analysis+Co-Purchases" alt="Basket Analysis">
+                <div class="visual-caption">
+                  <h5>Product Basket Analysis</h5>
+                  <p>Bar chart showing top co-purchase combinations (e.g., Coffee + Pastry).</p>
+                  <div class="insight">💡 Insight: 68% co-purchase rate suggests bundled promotions could lift average ticket size.</div>
+                </div>
+              </div>
+            </div>
           </div>
           <h3>🔧 Methodology</h3>
           <p><strong>Stack:</strong> Python (Pandas for transaction chunking, Matplotlib/Seaborn for visualization)</p>
