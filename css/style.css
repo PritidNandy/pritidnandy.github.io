@@ -152,12 +152,16 @@ html, body {
   align-items: center;
 }
 .hero-photo {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.hero-photo img { width: 100%; height: auto; display: block; }
+.hero-photo img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  mix-blend-mode: multiply;
+}
 .badge {
   display: inline-flex;
   align-items: center;
@@ -732,6 +736,7 @@ html, body {
   .case-card-summary { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px 16px; }
   .card-detail { padding: 20px; }
   .detail-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr; gap: 16px; margin: 40px 0; padding-top: 32px; }
+  .stat-card { padding: 20px 24px; }
   .footer-links { flex-wrap: wrap; gap: 16px; }
 }
