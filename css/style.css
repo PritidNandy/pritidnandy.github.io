@@ -685,4 +685,86 @@ html, body {
   color: var(--text-primary);
   margin-bottom: 4px;
 }
-.image-caption span { font-size: 0.78rem; color: var(--text-muted); font-style: italic; line-height: 1.5
+.image-caption span { font-size: 0.78rem; color: var(--text-muted); font-style: italic; line-height: 1.5; }
+
+/* ── Footer ── */
+.footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.footer-identity {
+  display: block;
+  margin-bottom: 24px;
+}
+.footer-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.footer-role {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.footer-tagline {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.footer-links { 
+  display: flex; 
+  justify-content: center; 
+  gap: 24px; 
+  margin-bottom: 24px; 
+}
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.25s;
+}
+.footer-links a:hover { 
+  color: var(--text-primary); 
+}
+.footer-copy { 
+  font-size: 0.8rem; 
+  color: var(--text-muted); 
+}
+
+/* =========================================
+   ADDITIONS FOR PORTFOLIO REFACTORING
+   ========================================= */
+.tag-scope {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.tag-key {
+  font-weight: 600;
+  border: 1px solid var(--highlight);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-photo { max-width: 260px; }
+  .hero { padding-top: 100px; min-height: auto; }
+  .nav-links { display: none; }
+  .case-card-summary { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px 16px; }
+  .card-detail { padding: 20px; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; gap: 16px; margin: 40px 0; padding-top: 32px; }
+  .stat-card { padding: 20px 24px; }
+  .footer-links { flex-wrap: wrap; gap: 16px; }
+}
